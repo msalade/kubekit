@@ -8,5 +8,5 @@ Usage:
     bash kube-log.sh -p web-pod -c web-conainer
     
 Params:
-  - `-p / --pattern` - pattern by which script will choose pod name to log
-  - `-c / --container` - name of the pods container 
+  - `-p / --pattern` (optional) - pattern by which script will choose pod name to log
+  - `-c / --container` (optional) - name of the pods container 

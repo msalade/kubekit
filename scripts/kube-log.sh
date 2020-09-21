@@ -24,11 +24,17 @@ IFS=';' read -ra POD_NAMES_ARRAY <<<"$POD_NAMES"
 echo "Searching for pods by the pattern: $PATTERN with container: $CONTAINER"
 
 for name in "${POD_NAMES_ARRAY[@]}"; do
-    if [[ $name =~ "$PATTERN" ]]; then
+    if [[ -z "$PATTERN" || $name =~ "$PATTERN" ]]; then
         echo "Logging from the pod: $name"
 
+        if [ -z "$CONTAINER" ]; then
+            SCRIPT="kubectl logs -f $name"
+        else
+            SCRIPT="kubectl logs -f $name -c $CONTAINER"
+        fi
+
         osascript -e "tell app \"Terminal\"
-            do script \"kubectl logs -f $name -c $CONTAINER\"
+            do script \"$SCRIPT\"
         end tell"
     fi
 done
