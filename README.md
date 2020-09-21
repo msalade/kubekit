@@ -11,7 +11,7 @@ Params:
   - `-p / --pattern` (optional) - pattern by which script will choose pod name to log
   - `-c / --container` (optional) - name of the pods container 
 
-### [Kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) log helper
+### [Kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) delete helper
 Allow deleting all pods matching the pattern.
 
 Usage: 
